@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { Post } from "../queries/types";
+import { Post } from "../queries/generated/graphql";
 
 interface PostCardPros {
   post: Post;
@@ -10,7 +10,7 @@ const PostCard: FC<PostCardPros> = ({ post }) => {
     <div>
       <div className="max-w-sm overflow-hidden rounded-xl bg-white shadow-md duration-200 hover:scale-105 hover:shadow-xl">
         <img
-          src={`${process.env.NEXT_PUBLIC_ASSETS_URL}/${post.featured_image.id}`}
+          src={`${process.env.NEXT_PUBLIC_ASSETS_URL}/${post?.featured_image?.id}`}
           alt="plant"
           className="h-auto w-full"
         />

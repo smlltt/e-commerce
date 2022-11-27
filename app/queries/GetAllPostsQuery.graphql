@@ -1,0 +1,11 @@
+query GetAllPosts {
+    posts {
+        id
+        title
+        slug
+        featured_image {
+            id
+        }
+        body
+    }
+}

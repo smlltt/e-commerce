@@ -1,25 +1,15 @@
-import { fetchData } from "../helpers";
-import { Post } from "./types";
+import { gql } from "graphql-request";
 
-export const getHomepagePosts = async (): Promise<Post[]> => {
-  const data = await fetchData(
-    `
-        query HomepagePosts {
-            posts {
-                id
-                title
-                slug
-                featured_image {
-                id 
-                }
-                body
-            }
-        }
-        `,
-    {
-      variables: {},
+export const GET_ALL_POSTS_QUERY = gql`
+  query GetAllPosts {
+    posts {
+      id
+      title
+      slug
+      featured_image {
+        id
+      }
+      body
     }
-  );
-
-  return data.data.posts;
-};
+  }
+`;
